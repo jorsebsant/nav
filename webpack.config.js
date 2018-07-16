@@ -5,7 +5,7 @@ const { jsxLoader, stylusLoader, cssLoader } = require('./config/loaders')
 
 module.exports = {
   entry: {
-    App: path.resolve(__dirname, 'public/js/app.js'),
+    App: path.resolve(__dirname, 'src/versions/app.js'),
   },
 
   devtool: 'cheap-source-map',
