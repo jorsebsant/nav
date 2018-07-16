@@ -1,0 +1,142 @@
+.header
+  background $primary-color
+  font-family $primary-font
+  font-size 21px
+  position fixed
+  right 100%
+  width: calc(100vw - 72px)  
+  z-index 1
+    
+  @media screen and (min-width: $min-width-responsive)
+    right  0
+    width 100%
+    .wrapper
+      align-items center
+
+.wrapper    
+  display flex
+  max-width $max-width
+  margin 0 auto
+  flex-direction column
+  @media screen and (min-width: $min-width-responsive)
+    flex-direction row
+
+.menu
+  background-color white
+  width 100%
+  overflow-y auto
+  @media screen and (min-width: $min-width-responsive)
+    background-color transparent
+    overflow-y hidden
+    
+.menu__list
+  display flex
+  flex-direction column  
+  height calc(100vh - 20px)
+  @media screen and (min-width: $min-width-responsive)
+    flex-direction row
+    height initial
+
+.menu__list-item
+  position relative
+  a
+    color black
+    display block
+    padding 0 24px
+    line-height 48px
+    @media screen and (min-width: $min-width-responsive)
+      color white
+      line-height 1.15
+      padding 24px
+
+    &:hover
+      background-color $grey
+      @media screen and (min-width: $min-width-responsive)
+        background-color white
+        color $primary-color
+  &[data-role="dropdown-menu"]
+    @media screen and (max-width: $min-width-responsive)
+      &::after
+        content: ''
+        color: $primary-color
+        border-left-color: transparent
+        border-top-color: transparent
+        border-style: solid
+        border-width: 3px
+        display: block
+        font-size: 24px
+        height: 0.35em
+        position: absolute
+        right: 1em
+        top: 0.5em
+        transform: rotate(45deg)
+        transform-origin: 70% 75%
+        transition: transform 0.3s
+        width: 0.35em
+.logo
+  display inline-block
+  a 
+    align-items center
+    display inline-flex
+    padding 20px
+    &.toggle-menu
+      background-color $primary-color
+      left 100%
+      padding 0
+      position absolute
+      height 60px
+      &::after
+        background-color: $primary-color;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 100%;
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        width: 100vw;
+    
+  @media screen and (min-width: $min-width-responsive)
+    padding 0 48px 0 24px
+
+.logo__img  
+  max-width 50px
+  @media screen and (min-width: $min-width-responsive)
+    max-width 60px
+
+.button-toggle
+  display: none
+.submenu
+  max-height 0
+  opacity 0
+  background-color white
+  @media screen and (min-width: $min-width-responsive)
+    opacity 0
+    position absolute
+    transition all 0.3s
+    width 181%
+    visibility hidden
+
+.submenu__item
+  a
+    color black
+    font-size 16px
+    font-family $font-secondary
+    line-height 48px
+    padding 0 24px
+    &:hover
+      background-color $grey
+
+.headline-container
+  position relative
+
+.headline
+  color white
+  font-family $primary-font
+  font-size 120px
+  line-height 132px
+  left 50%
+  position absolute
+  top 50%
+  transform translate(-50%,-50%)
+  width 62%
