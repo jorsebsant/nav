@@ -23,23 +23,11 @@ const cssLoader = {
 const stylusLoader = {
     test: /\.styl$/,
     use: [
-        {
-            loader: 'file-loader',
-            options: {
-                outputPath: '../styles/',
-                name: '[name].css',
-            }
-        },
-        {
-            loader: 'extract-loader'
-        },
-        {
-            loader: 'css-loader',
-        },
-        {
-            loader: 'stylus-loader',
-            options: { sourceMap: true },
-        },
+        'style-loader',
+    {
+      loader: 'css-loader',
+    },
+    'stylus-loader',
     ],
 }
 

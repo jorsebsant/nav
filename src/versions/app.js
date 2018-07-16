@@ -1,5 +1,6 @@
 import Menu from '../components/Menu'
+import '../stylus/style.styl'
 
 // client side rendering
-const app = document.body
-app.appendChild(Menu())
+const header = document.body.querySelector('.header')
+header.appendChild(Menu())
