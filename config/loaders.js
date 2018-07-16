@@ -1,3 +1,5 @@
+const path = require('path')
+
 const jsxLoader = {
     test: /\.js$/,
     use: {
@@ -13,21 +15,35 @@ const cssLoader = {
     use: [
         'style-loader',
         {
-        loader: 'css-loader',
+        loader: 'css-loader'
         },
     ],
 }
 
 const stylusLoader = {
-    test: /\.s?tyl$/,
+    test: /\.styl$/,
     use: [
-        'style-loader',
         {
-        loader: 'css-loader',
+            loader: 'file-loader',
+            options: {
+                outputPath: '../styles/',
+                name: '[name].css',
+            }
         },
-        'stylus-loader',
+        {
+            loader: 'extract-loader'
+        },
+        {
+            loader: 'css-loader',
+        },
+        {
+            loader: 'stylus-loader',
+            options: { sourceMap: true },
+        },
     ],
 }
+
+
 
 module.exports = {
     stylusLoader,

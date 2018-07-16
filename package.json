@@ -15,7 +15,7 @@
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "webpack && node ./bin/www"
   },
   "dependencies": {
     "express": "~4.2.0",
@@ -28,7 +28,9 @@
     "@babel/preset-env": "^7.0.0-beta.49",
     "babel-loader": "8.0.0-beta.3",
     "css-loader": "^1.0.0",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-loader": "^2.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
     "jsx-render": "0.6.6",
     "style-loader": "^0.21.0",
     "stylus": "^0.54.5",
