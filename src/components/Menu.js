@@ -1,6 +1,6 @@
 import dom from 'jsx-render'
 
 const Menu = () => (
-  <div>heloooo</div>
+  <div>heloooasas</div>
 )
 export default Menu

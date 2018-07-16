@@ -1,4 +1,4 @@
-import Menu from './Menu'
+import Menu from '../components/Menu'
 
 // client side rendering
 const app = document.body
