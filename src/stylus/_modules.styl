@@ -4,7 +4,8 @@
   font-size 21px
   position fixed
   right 100%
-  width: calc(100vw - 72px)  
+  top 0
+  width calc(100vw - 72px)  
   z-index 1
     
   @media screen and (min-width: $min-width-responsive)
@@ -15,19 +16,19 @@
 
 .wrapper    
   display flex
+  flex-direction column
   max-width $max-width
   margin 0 auto
-  flex-direction column
   @media screen and (min-width: $min-width-responsive)
     flex-direction row
 
 .menu
   background-color white
-  width 100%
   overflow-y auto
+  width 100%
   @media screen and (min-width: $min-width-responsive)
     background-color transparent
-    overflow-y hidden
+    overflow-y inherit
     
 .menu__list
   display flex
@@ -56,23 +57,24 @@
         color $primary-color
   &[data-role="dropdown-menu"]
     @media screen and (max-width: $min-width-responsive)
-      &::after
-        content: ''
-        color: $primary-color
-        border-left-color: transparent
-        border-top-color: transparent
-        border-style: solid
-        border-width: 3px
-        display: block
-        font-size: 24px
-        height: 0.35em
-        position: absolute
-        right: 1em
-        top: 0.5em
-        transform: rotate(45deg)
-        transform-origin: 70% 75%
-        transition: transform 0.3s
-        width: 0.35em
+      >a
+        &::after
+          content: ''
+          color: $primary-color
+          border-left-color: transparent
+          border-top-color: transparent
+          border-style: solid
+          border-width: 3px
+          display: block
+          font-size: 24px
+          height: 0.35em
+          position: absolute
+          right: 1em
+          top: 0.5em
+          transform: rotate(45deg)
+          transform-origin: 70% 75%
+          transition: transform 0.3s
+          width: 0.35em
 .logo
   display inline-block
   a 
@@ -96,8 +98,8 @@
         top: 0;
         width: 100vw;
     
-  @media screen and (min-width: $min-width-responsive)
-    padding 0 48px 0 24px
+    @media screen and (min-width: $min-width-responsive)
+      padding 0 48px 0 24px
 
 .logo__img  
   max-width 50px
@@ -105,38 +107,77 @@
     max-width 60px
 
 .button-toggle
-  display: none
+  display none
+
 .submenu
+  background-color white
   max-height 0
   opacity 0
-  background-color white
+  transition all 0.5s
   @media screen and (min-width: $min-width-responsive)
     opacity 0
     position absolute
-    transition all 0.3s
-    width 181%
     visibility hidden
+    width 181%
 
 .submenu__item
   a
     color black
     font-size 16px
-    font-family $font-secondary
+    font-family $secondary-font
     line-height 48px
     padding 0 24px
     &:hover
-      background-color $grey
+      color $primary-color
+      background-color transparent
+      @media screen and (min-width: $min-width-responsive)
+        background-color $grey
+
+.main
+  margin-top 60px
+  position relative
+  &.wrapper
+    flex-direction column
+  &::after
+    content ''
+    background-color $transparent_black
+    bottom 0
+    display block
+    left: -100vw;
+    opacity 0
+    position absolute    
+    right: -100vw;
+    top 0
+  @media screen and (min-width: $min-width-responsive)
+    margin-top 72px
 
 .headline-container
   position relative
 
+.headline-img
+  img
+    max-width 100%
+
 .headline
-  color white
+  color black
   font-family $primary-font
-  font-size 120px
-  line-height 132px
-  left 50%
-  position absolute
-  top 50%
-  transform translate(-50%,-50%)
-  width 62%
+  font-size 44px
+  line-height 48px  
+  padding 50px 0 40px 24px
+  @media screen and (min-width: $min-width-responsive)
+    color white
+    font-size 120px
+    line-height 132px
+    left 50%
+    padding initial
+    position absolute
+    top 50%
+    transform translate(-50%,-50%)
+    width 62%
+
+.article
+  display block
+  font-family $secondary-font
+  font-size 14px
+  line-height: 24px;
+  padding 0 24px

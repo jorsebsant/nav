@@ -5,7 +5,21 @@ const menuConfig = [
   },
   {
     title: "About",
-    url: "#About"
+    url: "#About",
+    submenu:[
+      {
+        title: "What we do",
+        url: "#About/what-we-do"
+      },
+      {
+        title: "How we work",
+        url: "#About/how-we-work"
+      },
+      {
+        title: "Leadership",
+        url: "#About/leadership"
+      },
+    ]
   },
   {
     title: "Careers",

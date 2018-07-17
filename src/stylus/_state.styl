@@ -1,13 +1,34 @@
-.menu__list-item a
-  &.is-active
-    background-color white
-    color $primary-color
+body
+  &.is-disabled
+    overflow hidden
+    .main
+      &::after
+        opacity: 1    
+      @media screen and (max-width: $min-width-responsive)
+        transition: all .5s
+        transform:translateX(calc(100vw - 72px));
+    .article
+      @media screen and (max-width: $min-width-responsive)
+        transition: all .5s
+
+.menu__list-item 
+  a
+    &.is-active
+      @media screen and (min-width: $min-width-responsive)
+        background-color white
+        color $primary-color
+        
+  &[data-role="dropdown-menu"]
+    @media screen and (max-width: $min-width-responsive)
+      a
+        &.is-active
+          &::after
+            transform: rotate(-135deg)
 
 .submenu
   &.is-active
     max-height  100vh
     opacity 1
-    transition all .5s
     @media screen and (min-width: $min-width-responsive)
       visibility visible
       opacity 1
