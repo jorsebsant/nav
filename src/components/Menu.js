@@ -24,6 +24,14 @@ const Menu = () => {
     openSubMenu: function(node) {
       node.addEventListener('click', showSubmenu)
     },
+    enableContent: function(node) {
+      const submenuItems = node.querySelectorAll('.submenu__item');
+      if(submenuItems.length > 0){
+        submenuItems.forEach((item)=>{
+          item.addEventListener('click', enableContent)
+        })
+      }
+    },
     toggleMenu: function(node) {
       node.addEventListener('click', toggleMenu)
     },
@@ -43,7 +51,7 @@ const Menu = () => {
       <nav class="menu" role="navigation" aria-label="Main navigation">
         <ul class="menu__list">
           {menuConfig.map((item, index) => ( 
-            <li class='menu__list-item' data-role={item.submenu ? 'dropdown-menu' : 'normal'}>
+            <li class='menu__list-item' ref={actions.enableContent} data-role={item.submenu ? 'dropdown-menu' : 'normal'}>
               <a ref={actions.openSubMenu} href={item.url}>
                 {item.title}
               </a>
@@ -53,6 +61,7 @@ const Menu = () => {
             </li>
           ))}
         </ul> 
+      <small class="copyright">© 2018 Huge. All Rights Reserved.</small>
       </nav>
     </div>  
   )
@@ -128,6 +137,7 @@ function toggleAllItems(items, selector){
 
 function reset(){
   const items = document.querySelectorAll('.button-toggle')
+  body.classList.remove(disabled)
   if(header.classList.contains(open)){
     header.classList.remove(open)
   }
